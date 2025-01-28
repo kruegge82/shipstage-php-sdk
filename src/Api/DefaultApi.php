@@ -141,7 +141,7 @@ class DefaultApi
      * @return \kruegge82\shipstage\Model\Success|\kruegge82\shipstage\Model\Error
      */
     public function api2ViewsCreatePackage(
-        \kruegge82\shipstage\Model\Data $data,
+        \kruegge82\shipstage\Model\Data | \kruegge82\shipstage\Model\DHLDataModel | \kruegge82\shipstage\Model\GLSDataModel | \kruegge82\shipstage\Model\IDSDataModel | \kruegge82\shipstage\Model\TNTDataModel | \kruegge82\shipstage\Model\UPSDataModel $data,
         string $contentType = self::contentTypes['api2ViewsCreatePackage'][0]
     ): \kruegge82\shipstage\Model\Success|\kruegge82\shipstage\Model\Error
     {
@@ -162,7 +162,7 @@ class DefaultApi
      * @return array of \kruegge82\shipstage\Model\Success|\kruegge82\shipstage\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function api2ViewsCreatePackageWithHttpInfo(
-        \kruegge82\shipstage\Model\Data $data,
+        \kruegge82\shipstage\Model\Data | \kruegge82\shipstage\Model\DHLDataModel | \kruegge82\shipstage\Model\GLSDataModel | \kruegge82\shipstage\Model\IDSDataModel | \kruegge82\shipstage\Model\TNTDataModel | \kruegge82\shipstage\Model\UPSDataModel $data,
         string $contentType = self::contentTypes['api2ViewsCreatePackage'][0]
     ): array
     {
@@ -401,7 +401,7 @@ class DefaultApi
      * @return \GuzzleHttp\Psr7\Request
      */
     public function api2ViewsCreatePackageRequest(
-        \kruegge82\shipstage\Model\Data $data,
+        \kruegge82\shipstage\Model\Data | \kruegge82\shipstage\Model\DHLDataModel | \kruegge82\shipstage\Model\GLSDataModel | \kruegge82\shipstage\Model\IDSDataModel | \kruegge82\shipstage\Model\TNTDataModel | \kruegge82\shipstage\Model\UPSDataModel $data,
         string $contentType = self::contentTypes['api2ViewsCreatePackage'][0]
     ): Request
     {
