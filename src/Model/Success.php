@@ -46,47 +46,50 @@ class Success implements ModelInterface, ArrayAccess, JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static string $openAPIModelName = 'Success';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var array<string, string>
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var array<string, string>
+     */
     protected static array $openAPITypes = [
         'result' => 'string',
-        'detail' => 'string'
+        'detail' => 'string',
+        'package_id' => 'string'
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var array<string, string|null>
+     */
     protected static array $openAPIFormats = [
         'result' => null,
-        'detail' => null
+        'detail' => null,
+        'package_id' => null
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var array<string, bool>
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var array<string, bool>
+     */
     protected static array $openAPINullables = [
         'result' => false,
-        'detail' => false
+        'detail' => false,
+        'package_id' => false
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var array<string, bool>
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var array<string, bool>
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -169,7 +172,8 @@ class Success implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $attributeMap = [
         'result' => 'result',
-        'detail' => 'detail'
+        'detail' => 'detail',
+        'package_id' => 'package_id'
     ];
 
     /**
@@ -179,7 +183,8 @@ class Success implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $setters = [
         'result' => 'setResult',
-        'detail' => 'setDetail'
+        'detail' => 'setDetail',
+        'package_id' => 'setPackageId'
     ];
 
     /**
@@ -189,7 +194,8 @@ class Success implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $getters = [
         'result' => 'getResult',
-        'detail' => 'getDetail'
+        'detail' => 'getDetail',
+        'package_id' => 'getPackageId'
     ];
 
     /**
@@ -250,17 +256,18 @@ class Success implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $this->setIfExists('result', $data ?? [], 'ok');
         $this->setIfExists('detail', $data ?? [], null);
+        $this->setIfExists('package_id', $data ?? [], null);
     }
 
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-    * @param mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string $variableName
+     * @param array  $fields
+     * @param mixed  $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -350,6 +357,34 @@ class Success implements ModelInterface, ArrayAccess, JsonSerializable
 
         return $this;
     }
+
+    /**
+     * Gets package_id
+     *
+     * @return string|null
+     */
+    public function getPackageId(): ?string
+    {
+        return $this->container['package_id'];
+    }
+
+    /**
+     * Sets result
+     *
+     * @param string|null $package_id result
+     *
+     * @return $this
+     */
+    public function setPackageId(?string $package_id): static
+    {
+        if (is_null($package_id)) {
+            throw new InvalidArgumentException('non-nullable result cannot be null');
+        }
+        $this->container['package_id'] = $package_id;
+
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -414,7 +449,7 @@ class Success implements ModelInterface, ArrayAccess, JsonSerializable
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
