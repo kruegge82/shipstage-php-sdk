@@ -504,9 +504,9 @@ class DefaultApi
     public function api2ViewsGetLabel(
         int $package_id,
         string $contentType = self::contentTypes['api2ViewsGetLabel'][0]
-    ): void
+    )
     {
-        $this->api2ViewsGetLabelWithHttpInfo($package_id, $contentType);
+        return $this->api2ViewsGetLabelWithHttpInfo($package_id, $contentType);
     }
 
     /**
@@ -551,7 +551,7 @@ class DefaultApi
             $statusCode = $response->getStatusCode();
 
 
-            return [null, $statusCode, $response->getHeaders()];
+            return [null, $statusCode, $response->getHeaders(), $response->getBody()->getContents()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
