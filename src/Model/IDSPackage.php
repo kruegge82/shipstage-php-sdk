@@ -276,7 +276,7 @@ class IDSPackage implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param array $data Associated array of property values initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(array|null $data = null)
     {
         $this->setIfExists('required_items', $data ?? [], false);
         $this->setIfExists('weight', $data ?? [], null);
